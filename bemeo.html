@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Birthday Em Bé Meo 16/6 🐱🍰</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', sans-serif; overflow: hidden; background: #e458c5; }
+
+        .page { width: 100vw; height: 100vh; position: absolute; transition: 1.2s cubic-bezier(0.86, 0, 0.07, 1); display: flex; justify-content: center; align-items: center; }
+        
+        /* Slide 1: Đẹp và Nổi bật */
+        #slide1 { 
+            background: linear-gradient(45deg, #a351a1, #ad419f, #9a3293); 
+            flex-direction: column; 
+        }
+        .glow-box { 
+            width: 250px; height: 250px; 
+            background: radial-gradient(circle, #ff4757, #ff6b81);
+            border-radius: 50px; 
+            display: flex; justify-content: center; align-items: center;
+            color: white; font-size: 1.2rem; cursor: pointer;
+            box-shadow: 0 0 50px rgba(255, 71, 87, 0.5);
+            animation: float 3s ease-in-out infinite;
+            text-align: center; padding: 20px;
+        }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+
+        /* Slide 2: Giữ nguyên như bạn muốn */
+        #slide2 { left: 100vw; background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%); }
+        .card { background: rgba(255,255,255,0.9); padding: 50px; border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.2); text-align: center; }
+        
+        .particle { position: absolute; font-size: 2rem; animation: floatUp 3s linear forwards; }
+        @keyframes floatUp { 0% { transform: translateY(0); opacity: 1; } 100% { transform: translateY(-500px); opacity: 0; } }
+    </style>
+</head>
+<body>
+
+    <div class="page" id="slide1">
+        <div class="glow-box" onclick="openGift()">
+            <h1>Em nhấn vô i<br>bé Meo 🎁</h1>
+        </div>
+    </div>
+
+    <div class="page" id="slide2">
+        <div class="card">
+            <h1 style="color: #e74c3c;">Happy Birthday Bé Meo dth cụa anh🎉</h1>
+            <p style="font-size: 1.5rem;">A chúc bé Meo tuổi mới học giỏi, mạnh khỏe và hạnh phúc nhó✨</p>
+            <p>Chúc em Meo sẽ thành công trong học tập và bên a lâu hơn hehe💖 </p>
+        </div>
+    </div>
+
+    <script>
+        function openGift() {
+            document.getElementById('slide1').style.transform = 'scale(0) rotate(180deg)';
+            setTimeout(() => {
+                document.getElementById('slide2').style.left = '0';
+                setInterval(createEffect, 200);
+            }, 500);
+        }
+
+        function createEffect() {
+            const items = ['🐱', '🌸', '✨', '💖', '🎂'];
+            const el = document.createElement('div');
+            el.className = 'particle';
+            el.innerHTML = items[Math.floor(Math.random() * items.length)];
+            el.style.left = Math.random() * 100 + 'vw';
+            el.style.top = '100vh';
+            document.body.appendChild(el);
+            setTimeout(() => el.remove(), 3000);
+        }
+    </script>
+</body>
+</html>
